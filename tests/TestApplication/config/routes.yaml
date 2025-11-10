@@ -1,0 +1,5 @@
+acme_sylius_example_admin:
+    resource: "@BitExpertSyliusTwoFactorAuthPlugin/config/routes/admin.yaml"
+
+acme_sylius_example_shop:
+    resource: "@BitExpertSyliusTwoFactorAuthPlugin/config/routes/shop.yaml"
