@@ -8,5 +8,6 @@
         <import resource="services/controller.xml" />
         <import resource="services/event_subscriber.xml" />
         <import resource="services/form.xml" />
+        <import resource="services/grid.xml" />
     </imports>
 </container>
