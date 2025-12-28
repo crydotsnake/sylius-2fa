@@ -5,6 +5,9 @@ bitexpert_sylius_twofactor:
       google:
         activate: Activate Google Auth
         disable: Disable Google Auth
+      email:
+        activate: Activate Email Auth
+        disable: Disable Email Auth
     grid:
       2fa: 2FA Enabled
     title: Administrator 2FA
@@ -29,3 +32,14 @@ bitexpert_sylius_twofactor:
         verify_code:
           label: "Step 3: Verify installation"
           headline: Enter the verification code
+    email:
+      steps:
+        install:
+          label: "Step 1: Send code via email"
+          headline: Check your email inbox for an email with the auth code to enter in the next step.
+        verify_code:
+          label: "Step 2: Verify the auth code"
+          headline: Enter your verification code
+  email_template:
+    subject: Email Auth Code Verification
+    message: Use this "%authCode%" code to log into Sylius

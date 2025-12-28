@@ -1,0 +1,11 @@
+{% extends '@SyliusCore/Email/layout.html.twig' %}
+
+{% block subject %}
+{{ 'bitexpert_sylius_twofactor.email_template.subject'|trans }}
+{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    {{ 'bitexpert_sylius_twofactor.email_template.message'|trans({'%authCode%': authCode}) }}
+</div>
+{% endblock %}

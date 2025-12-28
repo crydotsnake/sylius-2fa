@@ -9,16 +9,28 @@ sylius_twig_hooks:
       content:
         template: '@BitExpertSyliusTwoFactorAuthPlugin/admin/admin_user/form/sections/2fa_active.html.twig'
 
-    # 2FA Setup wizard
-    'sylius_admin.bitexpert_sylius_twofactor.show.content.header':
+    # 2FA Setup wizard for Google Authenticator
+    'sylius_admin.bitexpert_sylius_twofactor.google.show.content.header':
       breadcrumbs:
         enabled: false
       title_block:
         enabled: false
 
-    'sylius_admin.bitexpert_sylius_twofactor.show.content':
+    'sylius_admin.bitexpert_sylius_twofactor.google.show.content':
       main:
-        template: '@BitExpertSyliusTwoFactorAuthPlugin/admin/two_factor_setup/main.html.twig'
+        template: '@BitExpertSyliusTwoFactorAuthPlugin/admin/two_factor_setup/google.html.twig'
+        priority: 100
+
+    # 2FA Setup wizard for Email Auth
+    'sylius_admin.bitexpert_sylius_twofactor.email.show.content.header':
+      breadcrumbs:
+        enabled: false
+      title_block:
+        enabled: false
+
+    'sylius_admin.bitexpert_sylius_twofactor.email.show.content':
+      main:
+        template: '@BitExpertSyliusTwoFactorAuthPlugin/admin/two_factor_setup/email.html.twig'
         priority: 100
 
     # 2FA login page

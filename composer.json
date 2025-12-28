@@ -14,6 +14,7 @@
         "php": "^8.2",
         "endroid/qr-code-bundle": "^6.0",
         "scheb/2fa-bundle": "^7.11",
+        "scheb/2fa-email": "^7.13",
         "scheb/2fa-google-authenticator": "^7.11",
         "sylius/sylius": "^2.1"
     },

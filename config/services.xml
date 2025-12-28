@@ -9,5 +9,6 @@
         <import resource="services/event_subscriber.xml" />
         <import resource="services/form.xml" />
         <import resource="services/grid.xml" />
+        <import resource="services/mailer.xml" />
     </imports>
 </container>

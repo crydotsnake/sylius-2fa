@@ -19,9 +19,12 @@ trait TwoFactorAuthTrait
     #[ORM\Column(name: 'google_authenticator_secret', type: 'string', nullable: true)]
     private ?string $googleAuthenticatorSecret;
 
+    #[ORM\Column(name: 'email_auth_code', type: 'string', nullable: true)]
+    private ?string $emailAuthCode;
+
     public function isTwoFactorActive(): bool
     {
-        return $this->isGoogleAuthenticatorEnabled();
+        return $this->isGoogleAuthenticatorEnabled() || $this->isEmailAuthEnabled();
     }
 
     public function getGoogleAuthenticatorSecret(): ?string
@@ -46,5 +49,29 @@ trait TwoFactorAuthTrait
         }
 
         return $this->username;
+    }
+
+    public function isEmailAuthEnabled(): bool
+    {
+        return null !== $this->emailAuthCode;
+    }
+
+    public function getEmailAuthRecipient(): string
+    {
+        return $this->email;
+    }
+
+    public function getEmailAuthCode(): string
+    {
+        if (null === $this->emailAuthCode) {
+            return '';
+        }
+
+        return $this->emailAuthCode;
+    }
+
+    public function setEmailAuthCode(string $authCode): void
+    {
+        $this->emailAuthCode = $authCode;
     }
 }

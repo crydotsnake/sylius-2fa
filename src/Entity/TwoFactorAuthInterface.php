@@ -12,17 +12,10 @@ declare(strict_types=1);
 
 namespace BitExpert\SyliusTwoFactorAuthPlugin\Entity;
 
-use Scheb\TwoFactorBundle\Model\Google\TwoFactorInterface;
+use Scheb\TwoFactorBundle\Model\Google\TwoFactorInterface as GoogleTwoFactorInterface;
+use Scheb\TwoFactorBundle\Model\Email\TwoFactorInterface as EmailTwoFactorInterface;
 
-interface TwoFactorAuthInterface extends TwoFactorInterface
+interface TwoFactorAuthInterface extends GoogleTwoFactorInterface, EmailTwoFactorInterface
 {
     public function isTwoFactorActive(): bool;
-
-    public function getGoogleAuthenticatorSecret(): ?string;
-
-    public function setGoogleAuthenticatorSecret(?string $googleAuthenticatorSecret): void;
-
-    public function isGoogleAuthenticatorEnabled(): bool;
-
-    public function getGoogleAuthenticatorUsername(): string;
 }

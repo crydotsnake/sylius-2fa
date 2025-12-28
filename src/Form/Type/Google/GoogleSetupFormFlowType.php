@@ -17,13 +17,13 @@ use Symfony\Component\Form\Flow\FormFlowBuilderInterface;
 use Symfony\Component\Form\Flow\Type\NavigatorFlowType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class TwoFactorSetupFormFlowType extends AbstractFlowType
+final class GoogleSetupFormFlowType extends AbstractFlowType
 {
     public function buildFormFlow(FormFlowBuilderInterface $builder, array $options): void
     {
         $builder->addStep('install', InstallAuthenticatorFormType::class);
         $builder->addStep('qr_code', SetupQrCodeFormType::class);
-        $builder->addStep('verify_qr_code', VerifyCodeFormType::class);
+        $builder->addStep('verify_code', VerifyCodeFormType::class);
         $builder->add('navigator', NavigatorFlowType::class);
     }
 

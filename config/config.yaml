@@ -1,9 +1,20 @@
 imports:
     - { resource: 'twig_hooks/**/*.yaml' }
 
+sylius_mailer:
+    emails:
+        bitexpert_sylius_2fa_auth_code:
+            subject: Email Auth Code Verification
+            template: "@BitExpertSyliusTwoFactorAuthPlugin/email/email_auth_code.html.twig"
+
 scheb_two_factor:
     google:
         enabled: true
         digits: 6
         leeway: 25
         template: '@BitExpertSyliusTwoFactorAuthPlugin/admin/security/two_factor.html.twig'
+    email:
+        enabled: true
+        digits: 6
+        template: '@BitExpertSyliusTwoFactorAuthPlugin/admin/security/two_factor.html.twig'
+        mailer: 'BitExpert\SyliusTwoFactorAuthPlugin\Mailer\SyliusAuthCodeMailer'
