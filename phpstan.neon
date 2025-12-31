@@ -3,7 +3,8 @@ parameters:
     reportUnmatchedIgnoredErrors: false
     paths:
         - src
-        - tests/Behat
+        - tests/TestApplication
+        - tests/Unit
 
     excludePaths:
         # Makes PHPStan crash
@@ -12,6 +13,7 @@ parameters:
         # Test dependencies
         - 'tests/Application/app/**.php'
         - 'tests/Application/src/**.php'
+        - 'tests/TestApplication/config/services_test.php'
 
     ignoreErrors:
         - '/Parameter #1 \$configuration of method Symfony\\Component\\DependencyInjection\\Extension\\Extension::processConfiguration\(\) expects Symfony\\Component\\Config\\Definition\\ConfigurationInterface, Symfony\\Component\\Config\\Definition\\ConfigurationInterface\|null given\./'

@@ -15,6 +15,7 @@ namespace BitExpert\SyliusTwoFactorAuthPlugin\Form\Renderer;
 use Scheb\TwoFactorBundle\Security\TwoFactor\Provider\TwoFactorFormRendererInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\SecurityBundle\Security\FirewallMap;
 use Symfony\Component\Security\Http\FirewallMapInterface;
 use Twig\Environment;
 
@@ -31,11 +32,20 @@ final readonly class FirewallAwareFormRenderer implements TwoFactorFormRendererI
     public function renderForm(Request $request, array $templateVars): Response
     {
         $response = new Response();
-        $firewallName = $this->firewallMap->getFirewallConfig($request)->getName();
-        if ($firewallName === 'admin') {
-            $response->setContent($this->twigEnvironment->render($this->adminTemplate, $templateVars));
-        } else {
-            $response->setContent($this->twigEnvironment->render($this->shopTemplate, $templateVars));
+
+        if (!$this->firewallMap instanceof FirewallMap) {
+            return $response;
+        }
+
+        try {
+            $firewallName = $this->firewallMap->getFirewallConfig($request)?->getName();
+            if ($firewallName === 'admin') {
+                $response->setContent($this->twigEnvironment->render($this->adminTemplate, $templateVars));
+            } else {
+                $response->setContent($this->twigEnvironment->render($this->shopTemplate, $templateVars));
+            }
+        }
+        catch (\Throwable $exception) {
         }
 
         return $response;

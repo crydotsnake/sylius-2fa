@@ -17,6 +17,7 @@ use Scheb\TwoFactorBundle\Model\Email\TwoFactorInterface;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Sylius\Component\Mailer\Sender\SenderInterface;
+use Sylius\Component\User\Model\UserInterface;
 
 final readonly class SyliusAuthCodeMailer implements AuthCodeMailerInterface
 {
@@ -29,6 +30,7 @@ final readonly class SyliusAuthCodeMailer implements AuthCodeMailerInterface
 
     public function sendAuthCode(TwoFactorInterface $user): void
     {
+        /** @var UserInterface&TwoFactorInterface $user */
         $this->sender->send(
             'bitexpert_sylius_2fa_auth_code',
             [

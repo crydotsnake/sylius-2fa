@@ -48,7 +48,10 @@ trait TwoFactorAuthTrait
             return $this->username;
         }
 
-        return $this->email;
+        if (is_string($this->email)) {
+            return $this->email;
+        }
+        return '';
     }
 
     public function isEmailAuthEnabled(): bool
@@ -58,7 +61,11 @@ trait TwoFactorAuthTrait
 
     public function getEmailAuthRecipient(): string
     {
-        return $this->email;
+        if (is_string($this->email)) {
+            return $this->email;
+        }
+
+        return '';
     }
 
     public function getEmailAuthCode(): string

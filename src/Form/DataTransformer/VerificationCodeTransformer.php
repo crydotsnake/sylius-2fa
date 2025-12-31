@@ -14,11 +14,14 @@ namespace BitExpert\SyliusTwoFactorAuthPlugin\Form\DataTransformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
 
+/**
+ * @implements DataTransformerInterface<string, array<int, string>>
+ */
 class VerificationCodeTransformer implements DataTransformerInterface
 {
     public function transform($value): array
     {
-        if (!$value || !is_string($value)) {
+        if (!$value) {
             return array_fill(0, 6, '');
         }
 
