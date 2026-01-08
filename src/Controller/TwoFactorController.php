@@ -67,6 +67,7 @@ final class TwoFactorController extends AbstractController
 
         /** @var FormInterface&FormFlowInterface $flow */
         $flow = $this->createForm($this->googleFormFlow, []);
+
         return $this->setupTwoFactorFlow($flow, $request, $type);
     }
 
@@ -88,6 +89,7 @@ final class TwoFactorController extends AbstractController
 
         /** @var FormInterface&FormFlowInterface $flow */
         $flow = $this->createForm($this->emailFormFlow, []);
+
         return $this->setupTwoFactorFlow($flow, $request, $type);
     }
 
@@ -120,18 +122,21 @@ final class TwoFactorController extends AbstractController
                 if ($this->googleAuthenticator->checkCode($resource, $code)) {
                     $this->repository->add($resource);
                     $this->addFlash('success', 'bitexpert_sylius_twofactor.2fa_setup.success');
+
                     return $this->redirectToRoute($this->redirectRoute);
                 }
-            } else if ($type === 'email') {
+            } elseif ($type === 'email') {
                 $resource->setEmailAuthCode($secret);
                 if ($code === $resource->getEmailAuthCode()) {
                     $this->repository->add($resource);
                     $this->addFlash('success', 'bitexpert_sylius_twofactor.2fa_setup.success');
+
                     return $this->redirectToRoute($this->redirectRoute);
                 }
             }
 
             $this->addFlash('error', 'bitexpert_sylius_twofactor.2fa_setup.failed');
+
             return $this->redirectToRoute($this->redirectRoute);
         }
 
@@ -181,6 +186,7 @@ final class TwoFactorController extends AbstractController
         );
 
         $result = '';
+
         try {
             $result = $builder->build()->getString();
         } catch (ValidationException $e) {

@@ -26,18 +26,15 @@ use Sylius\Component\User\Model\UserInterface;
 
 final class SyliusAuthCodeMailerTest extends TestCase
 {
-    /**
-     * @var MockObject&SenderInterface
-     */
+    /** @var MockObject&SenderInterface */
     private SenderInterface $sender;
-    /**
-     * @var MockObject&ChannelContextInterface
-     */
+
+    /** @var MockObject&ChannelContextInterface */
     private ChannelContextInterface $channelContext;
-    /**
-     * @var MockObject&LocaleContextInterface
-     */
+
+    /** @var MockObject&LocaleContextInterface */
     private LocaleContextInterface $localeContext;
+
     private SyliusAuthCodeMailer $mailer;
 
     protected function setUp(): void
@@ -49,7 +46,7 @@ final class SyliusAuthCodeMailerTest extends TestCase
         $this->mailer = new SyliusAuthCodeMailer(
             $this->sender,
             $this->channelContext,
-            $this->localeContext
+            $this->localeContext,
         );
     }
 
@@ -75,7 +72,7 @@ final class SyliusAuthCodeMailerTest extends TestCase
                     'authCode' => '123456',
                     'channel' => $channel,
                     'localeCode' => 'en_US',
-                ]
+                ],
             );
 
         $this->mailer->sendAuthCode($user);

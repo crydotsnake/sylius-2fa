@@ -51,6 +51,7 @@ trait TwoFactorAuthTrait
         if (is_string($this->email)) {
             return $this->email;
         }
+
         return '';
     }
 

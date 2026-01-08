@@ -28,9 +28,11 @@ final readonly class SyliusAuthCodeMailer implements AuthCodeMailerInterface
     ) {
     }
 
+    /**
+     * @param UserInterface&TwoFactorInterface $user
+     */
     public function sendAuthCode(TwoFactorInterface $user): void
     {
-        /** @var UserInterface&TwoFactorInterface $user */
         $this->sender->send(
             'bitexpert_sylius_2fa_auth_code',
             [

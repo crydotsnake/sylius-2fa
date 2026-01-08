@@ -34,7 +34,7 @@ final readonly class ShopAccountMenuListener
         $newOrder = [];
         $children = $menu->getChildren();
         $twoFactorItem = $children[self::MENU_ID] ?? null;
-        
+
         // First, add all items except the 2FA item
         foreach ($children as $name => $child) {
             if ($name === self::MENU_ID) {
@@ -42,13 +42,13 @@ final readonly class ShopAccountMenuListener
             }
 
             $newOrder[$name] = $child;
-            
+
             // Add 2FA item after personal_information
             if ($name === 'personal_information' && $twoFactorItem !== null) {
                 $newOrder[self::MENU_ID] = $twoFactorItem;
             }
         }
-        
+
         // If 2FA wasn't added after personal_information (e.g., personal_information doesn't exist),
         // add it at the end if it exists
         if (!isset($newOrder[self::MENU_ID]) && $twoFactorItem !== null) {

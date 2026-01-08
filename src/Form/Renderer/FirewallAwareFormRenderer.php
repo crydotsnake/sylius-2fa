@@ -16,7 +16,6 @@ use Scheb\TwoFactorBundle\Security\TwoFactor\Provider\TwoFactorFormRendererInter
 use Symfony\Bundle\SecurityBundle\Security\FirewallMap;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 use Twig\Environment;
 
 final readonly class FirewallAwareFormRenderer implements TwoFactorFormRendererInterface
