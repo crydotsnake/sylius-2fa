@@ -1,0 +1,56 @@
+bitexpert_sylius_twofactor:
+  admin:
+    form:
+      2fa_headline: 2FA-Einrichtung
+      google:
+        activate: Google Auth aktivieren
+        disable: Google Auth deaktivieren
+      email:
+        activate: E-Mail-Authentifizierung aktivieren
+        disable: E-Mail-Authentifizierung deaktivieren
+    grid:
+      2fa: 2FA aktiviert
+    title: Administrator-2FA
+    2fa_login:
+      headline: 2FA-Verifizierungscode eingeben
+      login: Anmelden
+      back: Zurück
+  shop:
+    menu:
+      label: 2FA-Konfiguration
+    form:
+      2fa_headline: 2FA-Einrichtung
+      2fa_active: 2FA aktiviert
+      2fa_inactive: 2FA nicht aktiv
+      google:
+        activate: Google Auth aktivieren
+        disable: Google Auth deaktivieren
+      email:
+        activate: E-Mail-Authentifizierung aktivieren
+        disable: E-Mail-Authentifizierung deaktivieren
+  2fa_setup:
+    google:
+      previous: Zurück
+      next: Weiter
+      finish: Abschließen
+      steps:
+        install:
+          label: "Schritt 1: Authenticator-App installieren"
+          headline: Google-Authenticator-App herunterladen
+          aria-label: Apps herunterladen
+        qr_code:
+          label: "Schritt 2: QR-Code zum Initialisieren scannen"
+        verify_code:
+          label: "Schritt 3: Installation verifizieren"
+          headline: Verifizierungscode eingeben
+    email:
+      steps:
+        install:
+          label: "Schritt 1: Code per E-Mail senden"
+          headline: Prüfen Sie Ihren E-Mail-Posteingang auf eine E-Mail mit dem Authentifizierungscode für den nächsten Schritt.
+        verify_code:
+          label: "Schritt 2: Authentifizierungscode verifizieren"
+          headline: Geben Sie Ihren Verifizierungscode ein
+  email_template:
+    subject: Verifizierungscode für E-Mail-Authentifizierung
+    message: Verwenden Sie diesen Code „%authCode%“, um sich bei Sylius anzumelden

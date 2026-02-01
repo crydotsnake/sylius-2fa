@@ -1,0 +1,4 @@
+bitexpert_sylius_twofactor:
+  2fa_setup:
+    success: 2FA activée avec succès.
+    failed: Code de vérification invalide. La 2FA n’a pas pu être activée.
