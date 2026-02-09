@@ -20,6 +20,7 @@ bitexpert_sylius_twofactor:
       label: 2FA Configuration
     form:
       2fa_headline: 2FA Setup
+      2fa_subtitle: Make your account more secure by enabling 2FA
       2fa_active: 2FA enabled
       2fa_inactive: 2FA not active
       google:
