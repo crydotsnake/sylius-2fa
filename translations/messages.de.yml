@@ -20,6 +20,7 @@ bitexpert_sylius_twofactor:
       label: 2FA-Konfiguration
     form:
       2fa_headline: 2FA-Einrichtung
+      2fa_subtitle: Machen Sie Ihr Konto sicherer, indem Sie 2FA aktivieren.
       2fa_active: 2FA aktiviert
       2fa_inactive: 2FA nicht aktiv
       google:
