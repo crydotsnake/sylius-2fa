@@ -10,9 +10,6 @@ sylius_twig_hooks:
             title:
                 template: '@BitExpertSyliusTwoFactorAuthPlugin/shop/account/dashboard/index/content/main/header/title.html.twig'
                 priority: 100
-            subtitle:
-                template: '@BitExpertSyliusTwoFactorAuthPlugin/shop/account/dashboard/index/content/main/header/subtitle.html.twig'
-                priority: 0
 
         'sylius_shop.bitexpert_sylius_twofactor.account.dashboard.index.content.main.section':
             overview:
@@ -32,9 +29,6 @@ sylius_twig_hooks:
             title:
                 template: '@BitExpertSyliusTwoFactorAuthPlugin/shop/account/dashboard/index/content/main/header/title.html.twig'
                 priority: 100
-            subtitle:
-                template: '@BitExpertSyliusTwoFactorAuthPlugin/shop/account/dashboard/index/content/main/header/subtitle.html.twig'
-                priority: 0
 
         # 2FA Setup wizard for Email Auth
         'sylius_shop.bitexpert_sylius_twofactor.email.index.content.main':
@@ -49,9 +43,6 @@ sylius_twig_hooks:
             title:
                 template: '@BitExpertSyliusTwoFactorAuthPlugin/shop/account/dashboard/index/content/main/header/title.html.twig'
                 priority: 100
-            subtitle:
-                template: '@BitExpertSyliusTwoFactorAuthPlugin/shop/account/dashboard/index/content/main/header/subtitle.html.twig'
-                priority: 0
 
         # 2FA login page
         'sylius_shop.bitexpert_sylius_twofactor.login':
