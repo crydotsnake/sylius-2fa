@@ -4,10 +4,24 @@
 [![installs on Packagist](https://img.shields.io/packagist/dt/bitexpert/sylius-2fa-plugin)](https://packagist.org/packages/bitexpert/sylius-2fa-plugin/)
 [![Mastodon Follow](https://img.shields.io/mastodon/follow/109408681246972700?domain=https://rheinneckar.social)](https://rheinneckar.social/@bitexpert)
 
+The **2FA** Plugin for *Sylius* allows admin users and shop users to enable two-factor authentication for their accounts. Users can choose between 2FA via Google Authenticator or email.
+
+### 3-step Setup workflow: 
+
+![Setup 2FA for a user account](docs/assets/setup_workflow.png)
+
+### 2-step Login workflow:
+
+![Login workflow with 2FA enabled](docs/assets/login.png)
+
+## Features:
+* Admin users and shop users can enable two-factor authentication for their accounts
+* Choose between Google Authenticator or email as an authentication method
+* During login users can choose which authentication method to use
+
 ## Requirements:
 * PHP 8.2 or higher
 * Sylius 2.0 or higher
-
 
 ## Installation
 
