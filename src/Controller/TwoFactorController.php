@@ -38,9 +38,9 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 final class TwoFactorController extends AbstractController
 {
-    private const AUTH_SECRET_SESSION_KEY = 'googleAuthSecret';
+    private const string AUTH_SECRET_SESSION_KEY = 'googleAuthSecret';
 
-    private const AUTH_EMAIL_SESSION_KEY = 'emailAuthCode';
+    private const string AUTH_EMAIL_SESSION_KEY = 'emailAuthCode';
 
     /**
      * @param UserRepositoryInterface<UserInterface> $repository
@@ -110,8 +110,15 @@ final class TwoFactorController extends AbstractController
             $data = $flow->getData();
             $code = $data['verify_code']['verification_code'] ?? '';
 
+            $sessionKey = '';
+            if ($type === 'google') {
+                $sessionKey = self::AUTH_SECRET_SESSION_KEY;
+            } elseif ($type === 'email') {
+                $sessionKey = self::AUTH_EMAIL_SESSION_KEY;
+            }
+
             /** @var string|null $secret */
-            $secret = $request->getSession()->get(self::AUTH_SECRET_SESSION_KEY);
+            $secret = $request->getSession()->get($sessionKey);
             if ($secret === null) {
                 throw $this->createAccessDeniedException();
             }
